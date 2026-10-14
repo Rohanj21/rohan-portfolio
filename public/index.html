@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rohan Ravi Jadhav — UX/UI Designer · Graphic Designer · WordPress Developer</title>
+  <meta name="description" content="Portfolio of Rohan Ravi Jadhav, a UX/UI designer, graphic designer, WordPress developer and video editor with 3+ years of experience across web and mobile.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f6f3">
+
+  <!-- Add <link rel="canonical"> and og:url / og:image (1200x630, absolute URL) once the live domain is known. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rohan Ravi Jadhav — UX/UI Designer">
+  <meta property="og:description" content="UX/UI Designer · Graphic Designer · WordPress Developer · Video Editor. Based in Mumbai, India.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rohan Ravi Jadhav — UX/UI Designer">
+  <meta name="twitter:description" content="UX/UI Designer · Graphic Designer · WordPress Developer · Video Editor.">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Runs before first paint: theme, and the flags that switch the loading animation on. -->
+  <script>
+    (function () {
+      var r = document.documentElement;
+      r.classList.add('js');
+      var theme = 'light';
+      try { if (localStorage.getItem('theme') === 'dark') theme = 'dark'; } catch (e) {}
+      r.setAttribute('data-theme', theme);
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        r.classList.add('anim', 'is-loading');
+        // Failsafe: if the animation script never starts (CDN blocked, offline), show the page.
+        setTimeout(function () {
+          if (!window.__motionReady) r.classList.remove('anim', 'is-loading');
+        }, 6000);
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rohan Ravi Jadhav",
+    "jobTitle": "UX/UI Designer",
+    "email": "mailto:jadhavrohan970@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN" },
+    "worksFor": { "@type": "Organization", "name": "IDCLE Tech LLP" },
+    "sameAs": ["https://www.behance.net/rohanjadhav19", "https://www.linkedin.com/in/rohanjadhav19"]
+  }
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <!-- Loading screen. Only displayed when JS + motion are available (html.anim); see css/styles.css and js/main.js. -->
+  <div class="preloader" id="preloader" role="status" aria-label="Loading portfolio">
+    <div class="pl-top" aria-hidden="true">
+      <span>RJ</span>
+      <span>Portfolio / 2026</span>
+    </div>
+    <div class="pl-stage" aria-hidden="true">
+      <p class="pl-name"><span class="pl-line"><span>Rohan</span></span><span class="pl-line"><span><em>Jadhav</em></span></span></p>
+      <p class="pl-tag">UX/UI · Graphic · WordPress · Video</p>
+    </div>
+    <div class="pl-bottom" aria-hidden="true">
+      <span class="pl-count"><b id="plCount">000</b><small>%</small></span>
+      <span>Loading</span>
+    </div>
+    <span class="pl-bar" aria-hidden="true"><i></i></span>
+    <svg class="pl-curve" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H100Q50 0 0 0Z"/></svg>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container">
+      <div class="header-inner">
+        <a class="logo" href="#top" aria-label="Rohan Jadhav, back to top"><span class="logo-mark" aria-hidden="true">RJ</span><span class="logo-text">Rohan Jadhav</span></a>
+
+        <nav class="site-nav" id="siteNav" aria-label="Primary">
+          <ul>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#websites">Live sites</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a class="nav-cta" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+            <span class="visually-hidden">Dark mode</span>
+            <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+            <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          </button>
+          <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteNav">
+            <span class="visually-hidden">Menu</span>
+            <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+            <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+
+        <p class="avail" data-hero><span class="avail-dot" aria-hidden="true"></span>Available for freelance · Mumbai, India</p>
+
+        <h1 id="hero-title" class="hero-title">
+          <span class="hero-line"><span class="hero-line-inner">UX/UI designer</span></span>
+          <span class="hero-line"><span class="hero-line-inner">crafting intuitive</span></span>
+          <span class="hero-line"><span class="hero-line-inner"><em>digital experiences.</em></span></span>
+        </h1>
+
+        <p class="hero-lead" data-hero>Three years of designing for web and mobile, from wireframes and prototypes in Figma to live products.</p>
+
+        <div class="hero-actions" data-hero>
+          <a class="btn btn-primary btn-lg" href="#projects">View work <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost btn-lg" href="#contact">Get in touch</a>
+        </div>
+
+        <dl class="hero-meta" data-hero>
+          <div><dt>Experience</dt><dd>3+ years</dd></div>
+          <div><dt>Delivered</dt><dd>3 live websites</dd></div>
+          <div><dt>Platforms</dt><dd>Web &amp; mobile</dd></div>
+          <div><dt>Industries</dt><dd>E-Commerce · SaaS · FinTech</dd></div>
+        </dl>
+
+        <div class="hero-tools" data-hero>
+          <p class="hero-tools-label">Tools</p>
+          <ul aria-label="Tools">
+            <li>Figma</li><li>Adobe XD</li><li>Sketch</li><li>Photoshop</li><li>Illustrator</li><li>Elementor</li><li>Divi</li><li>Premiere Pro</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">01 / Selected work</p>
+          <h2 id="projects-title">Selected projects</h2>
+          <p class="section-lead">Concept projects and case studies, published on Behance. Select one to open the full case study images.</p>
+        </header>
+
+        <div class="work-list" id="projectGrid">
+
+          <article class="work work--lead" data-slug="pulsemetrics">
+            <div class="work-media">
+              <picture>
+                <source type="image/avif" srcset="img/work/pulsemetrics/cover-640.avif 640w, img/work/pulsemetrics/cover-1000.avif 1000w, img/work/pulsemetrics/cover-1500.avif 1500w" sizes="(min-width:1024px) 720px, 100vw">
+                <source type="image/webp" srcset="img/work/pulsemetrics/cover-640.webp 640w, img/work/pulsemetrics/cover-1000.webp 1000w, img/work/pulsemetrics/cover-1500.webp 1500w" sizes="(min-width:1024px) 720px, 100vw">
+                <img src="img/work/pulsemetrics/cover-1000.jpg" srcset="img/work/pulsemetrics/cover-640.jpg 640w, img/work/pulsemetrics/cover-1000.jpg 1000w, img/work/pulsemetrics/cover-1500.jpg 1500w" sizes="(min-width:1024px) 720px, 100vw" width="1672" height="940" alt="PulseMetrics analytics dashboard concept: a laptop showing the dashboard overview, beside the case study headline">
+              </picture>
+            </div>
+            <div class="work-info">
+              <p class="work-meta"><span class="work-no">01</span><span class="work-type">Concept · SaaS · Web</span></p>
+              <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/256501935/PulseMetrics-Analytics-Dashboard-UXUI" target="_blank" rel="noopener">PulseMetrics | Analytics Dashboard UX/UI</a></h3>
+              <p class="work-desc">A concept UX/UI case study for a SaaS analytics dashboard.</p>
+              <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+            </div>
+          </article>
+
+          <article class="work" data-slug="medicare">
+            <div class="work-media">
+              <picture>
+                <source type="image/avif" srcset="img/work/medicare/cover-640.avif 640w, img/work/medicare/cover-1000.avif 1000w, img/work/medicare/cover-1500.avif 1500w" sizes="(min-width:1024px) 580px, 100vw">
+                <source type="image/webp" srcset="img/work/medicare/cover-640.webp 640w, img/work/medicare/cover-1000.webp 1000w, img/work/medicare/cover-1500.webp 1500w" sizes="(min-width:1024px) 580px, 100vw">
+                <img src="img/work/medicare/cover-1000.jpg" srcset="img/work/medicare/cover-640.jpg 640w, img/work/medicare/cover-1000.jpg 1000w, img/work/medicare/cover-1500.jpg 1500w" sizes="(min-width:1024px) 580px, 100vw" width="1536" height="1024" alt="MediCare+ healthcare concept: a phone app and a website shown together with the case study headline">
+              </picture>
+            </div>
+            <div class="work-info">
+              <p class="work-meta"><span class="work-no">02</span><span class="work-type">Concept · Healthcare · Web + mobile</span></p>
+              <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/256398857/MediCare-Healthcare-UXUI-Case-Study" target="_blank" rel="noopener">MediCare+ | Healthcare UX/UI Case Study</a></h3>
+              <p class="work-desc">A concept UX/UI case study for a healthcare product, designed for web and mobile.</p>
+              <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+            </div>
+          </article>
+
+          <article class="work" data-slug="studynest">
+            <div class="work-media">
+              <picture>
+                <source type="image/avif" srcset="img/work/studynest/cover-640.avif 640w, img/work/studynest/cover-1000.avif 1000w, img/work/studynest/cover-1500.avif 1500w" sizes="(min-width:1024px) 580px, 100vw">
+                <source type="image/webp" srcset="img/work/studynest/cover-640.webp 640w, img/work/studynest/cover-1000.webp 1000w, img/work/studynest/cover-1500.webp 1500w" sizes="(min-width:1024px) 580px, 100vw">
+                <img src="img/work/studynest/cover-1000.jpg" srcset="img/work/studynest/cover-640.jpg 640w, img/work/studynest/cover-1000.jpg 1000w, img/work/studynest/cover-1500.jpg 1500w" sizes="(min-width:1024px) 580px, 100vw" width="1536" height="1024" alt="StudyNest mobile app concept: a phone showing a daily study plan, beside the case study headline">
+              </picture>
+            </div>
+            <div class="work-info">
+              <p class="work-meta"><span class="work-no">03</span><span class="work-type">Concept · Mobile app</span></p>
+              <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/256017925/StudyNest-Mobile-App-UXUI-Case-Study" target="_blank" rel="noopener">StudyNest | Mobile App UX/UI Case Study</a></h3>
+              <p class="work-desc">A concept UX/UI case study for a mobile app built around study focus.</p>
+              <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+            </div>
+          </article>
+
+          <article class="work" data-slug="kora">
+            <div class="work-media">
+              <picture>
+                <source type="image/avif" srcset="img/work/kora/cover-640.avif 640w, img/work/kora/cover-1000.avif 1000w, img/work/kora/cover-1500.avif 1418w" sizes="(min-width:1024px) 580px, 100vw">
+                <source type="image/webp" srcset="img/work/kora/cover-640.webp 640w, img/work/kora/cover-1000.webp 1000w, img/work/kora/cover-1500.webp 1418w" sizes="(min-width:1024px) 580px, 100vw">
+                <img src="img/work/kora/cover-1000.jpg" srcset="img/work/kora/cover-640.jpg 640w, img/work/kora/cover-1000.jpg 1000w, img/work/kora/cover-1500.jpg 1418w" sizes="(min-width:1024px) 580px, 100vw" width="1418" height="1109" alt="Kora Indian ethnic wear shopping app concept: two phone screens, a home feed and a product page">
+              </picture>
+            </div>
+            <div class="work-info">
+              <p class="work-meta"><span class="work-no">04</span><span class="work-type">Concept · E-commerce · Mobile app</span></p>
+              <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/257082029/Kora-Indian-Ethnic-Wear-Shopping-App" target="_blank" rel="noopener">Kora - Indian Ethnic Wear Shopping App</a></h3>
+              <p class="work-desc">A concept UI/UX project for an Indian ethnic wear shopping app.</p>
+              <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+            </div>
+          </article>
+
+          <article class="work" data-slug="finflow">
+            <div class="work-media">
+              <picture>
+                <source type="image/avif" srcset="img/work/finflow/cover-640.avif 640w, img/work/finflow/cover-1000.avif 1000w, img/work/finflow/cover-1500.avif 1500w" sizes="(min-width:1024px) 580px, 100vw">
+                <source type="image/webp" srcset="img/work/finflow/cover-640.webp 640w, img/work/finflow/cover-1000.webp 1000w, img/work/finflow/cover-1500.webp 1500w" sizes="(min-width:1024px) 580px, 100vw">
+                <img src="img/work/finflow/cover-1000.jpg" srcset="img/work/finflow/cover-640.jpg 640w, img/work/finflow/cover-1000.jpg 1000w, img/work/finflow/cover-1500.jpg 1500w" sizes="(min-width:1024px) 580px, 100vw" width="1806" height="1413" alt="FinFlow digital lending platform concept: a laptop dashboard and a phone app on a desk">
+              </picture>
+            </div>
+            <div class="work-info">
+              <p class="work-meta"><span class="work-no">05</span><span class="work-type">Concept · Fintech</span></p>
+              <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/257027731/FinFlow-Digital-Lending-Platform" target="_blank" rel="noopener">FinFlow - Digital Lending Platform</a></h3>
+              <p class="work-desc">A concept project for a digital lending platform.</p>
+              <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="more-link" data-reveal>
+          <a class="btn btn-ghost" href="https://www.behance.net/rohanjadhav19" target="_blank" rel="noopener">More work on Behance <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- LIVE WEBSITES -->
+    <section class="section section-alt" id="websites" aria-labelledby="websites-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">02 / Shipped work</p>
+          <h2 id="websites-title">Live websites &amp; products</h2>
+        </header>
+
+        <ul class="site-grid">
+          <li class="site-card" data-reveal>
+            <div class="site-top"><p class="chip">UX/UI Designer &amp; WordPress Developer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
+            <h3>IntelliCraft</h3>
+            <p class="site-desc">Designed and developed the complete website including layout, visual identity, and WordPress build with custom page structure and branded components, and also designed the entire IntelliCraft product.</p>
+            <a class="site-link" href="https://intellicraft.io/" target="_blank" rel="noopener">intellicraft.io<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </li>
+          <li class="site-card" data-reveal>
+            <div class="site-top"><p class="chip">UX/UI Designer &amp; WordPress Developer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
+            <h3>Arceus Infotech</h3>
+            <p class="site-desc">End-to-end website design and WordPress development for an IT services company, including service pages, branding elements, and responsive layout.</p>
+            <a class="site-link" href="https://arceusinfotech.com/" target="_blank" rel="noopener">arceusinfotech.com<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </li>
+          <li class="site-card" data-reveal>
+            <div class="site-top"><p class="chip">Senior UX/UI Designer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
+            <h3>Talker.Network</h3>
+            <p class="site-desc">Designed the UI for a real-time voice communication platform enabling always-on, always-synced voice messaging across teams, available on the Apple App Store.</p>
+            <a class="site-link" href="https://talker.network/" target="_blank" rel="noopener">talker.network<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </li>
+          <li class="site-card" data-reveal>
+            <div class="site-top"><p class="chip">UX/UI &amp; WordPress Developer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
+            <h3>ArcNetworks</h3>
+            <p class="site-desc">Led all design work with a responsive UI design, graphic assets, and WordPress website development.</p>
+            <a class="site-link" href="https://arcnetworks.in/" target="_blank" rel="noopener">arcnetworks.in<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </li>
+          <li class="site-card" data-reveal>
+            <div class="site-top"><p class="chip">UX/UI &amp; Graphic Designer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
+            <h3>OSN – Open Source Network</h3>
+            <p class="site-desc">Designed the platform interface and visual language for a developer-focused open-source community network.</p>
+            <a class="site-link" href="https://opensources.network/" target="_blank" rel="noopener">opensources.network<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-copy" data-reveal>
+            <p class="eyebrow">03 / About</p>
+            <h2 id="about-title">Designer and digital creative</h2>
+            <p class="about-lead">I'm a results-driven UX/UI designer and digital creative with 3+ years of experience crafting intuitive digital experiences across web and mobile platforms. I have led design projects end-to-end, from wireframing and prototyping in Figma to delivering pixel-perfect, live products.</p>
+            <p>I'm skilled in WordPress development, graphic design, and video production, and I enjoy collaborating with cross-functional development teams to turn complex client requirements into clean, user-centric interfaces.</p>
+          </div>
+          <dl class="facts">
+            <div class="fact fact--big" data-reveal><dt>Experience</dt><dd>3+ years</dd></div>
+            <div class="fact" data-reveal><dt>Industries served</dt><dd>E-Commerce · IT Services &amp; SaaS · Finance &amp; FinTech</dd></div>
+            <div class="fact" data-reveal><dt>Based in</dt><dd>Mumbai, India</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section-alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">04 / Core skills</p>
+          <h2 id="skills-title">Tools and expertise</h2>
+        </header>
+        <ul class="skill-grid">
+          <li class="skill" data-reveal>
+            <h3>UX/UI Design</h3>
+            <p>Wireframing, prototyping, user flows, design systems.</p>
+            <ul class="chips"><li>Figma</li><li>Adobe XD</li><li>Sketch</li></ul>
+          </li>
+          <li class="skill" data-reveal>
+            <h3>Graphic Design</h3>
+            <p>Logo designing, icons, illustrations, marketing visuals.</p>
+            <ul class="chips"><li>Photoshop</li><li>Illustrator</li><li>Canva</li></ul>
+          </li>
+          <li class="skill" data-reveal>
+            <h3>WordPress Dev</h3>
+            <p>Custom theme setup, page building, plugin configuration.</p>
+            <ul class="chips"><li>Elementor</li><li>Divi</li></ul>
+          </li>
+          <li class="skill" data-reveal>
+            <h3>Video Editing</h3>
+            <p>Promotional videos, motion graphics, article templates.</p>
+            <ul class="chips"><li>Premiere Pro</li><li>After Effects</li></ul>
+          </li>
+          <li class="skill skill--wide skill--feature" data-reveal>
+            <h3>Collaboration</h3>
+            <p>Cross-functional team leadership.</p>
+          </li>
+          <li class="skill skill--wide" data-reveal>
+            <h3>Languages</h3>
+            <ul class="lang-list">
+              <li>English <span>Full Professional</span></li>
+              <li>Hindi <span>Full Professional</span></li>
+              <li>Marathi <span>Native</span></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">05 / Experience</p>
+          <h2 id="experience-title">Professional experience</h2>
+          <p class="section-lead">Design and WordPress work across product, agency and freelance engagements.</p>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline-item" data-reveal>
+            <div class="tl-meta">
+              <p class="tl-date"><time>2022</time> – Present</p>
+              <p class="chip chip--accent">Full-time</p>
+            </div>
+            <article class="tl-body">
+              <h3>Senior UX/UI Designer &amp; Graphic Designer</h3>
+              <p class="tl-org">IDCLE Tech LLP</p>
+              <ul class="bullets">
+                <li>Designed and delivered 3 fully live websites, each with bespoke banners, visuals, custom icons, and illustrations, including intellicraft.io and arceusinfotech.com.</li>
+                <li>Created logo identities and brand assets for multiple clients, ensuring visual consistency across digital touchpoints.</li>
+                <li>Audited and redesigned legacy web applications, improving UX flows, visual hierarchy, and accessibility.</li>
+                <li>Produced custom icon sets and illustration systems reused across multiple client projects.</li>
+              </ul>
+              <ul class="chips" aria-label="Focus"><li>UX/UI</li><li>Branding</li><li>Illustration</li></ul>
+            </article>
+          </li>
+          <li class="timeline-item" data-reveal>
+            <div class="tl-meta">
+              <p class="tl-date"><time>2021</time> – <time>2026</time></p>
+              <p class="chip">Freelancing</p>
+            </div>
+            <article class="tl-body">
+              <h3>UX/UI Designer</h3>
+              <p class="tl-org">Revelin7 Tech LLP</p>
+              <ul class="bullets">
+                <li>Led a 3-member development team, managing design handoffs, feedback loops, and sprint planning.</li>
+                <li>Designed and shipped multiple mobile and web applications aligned to client specifications and brand guidelines, and also developed the website on Elementor.</li>
+                <li>Managed end-to-end product requirements from initial discovery through app store release.</li>
+                <li>Maintained design consistency across iOS and Android platforms using shared component libraries.</li>
+              </ul>
+              <ul class="chips" aria-label="Focus"><li>Mobile &amp; web apps</li><li>Elementor</li><li>Team leadership</li></ul>
+            </article>
+          </li>
+          <li class="timeline-item" data-reveal>
+            <div class="tl-meta">
+              <p class="tl-date"><time>2021</time> – <time>2024</time></p>
+              <p class="chip">Freelancing</p>
+            </div>
+            <article class="tl-body">
+              <h3>UX Designer &amp; Graphic Designer</h3>
+              <p class="tl-org">NarrativeX</p>
+              <ul class="bullets">
+                <li>Built the full web app UI in Figma and Adobe XD, including wireframes, interactive prototypes, and final handoff assets.</li>
+                <li>Managed and maintained the company website on WordPress (Elementor and Divi) from structure to content updates.</li>
+                <li>Designed reusable article layout templates and promotional video assets for marketing campaigns.</li>
+                <li>Brainstormed and iterated UX improvements based on user feedback and analytics insights.</li>
+              </ul>
+              <ul class="chips" aria-label="Focus"><li>Figma</li><li>Adobe XD</li><li>WordPress</li></ul>
+            </article>
+          </li>
+          <li class="timeline-rail" aria-hidden="true"><span class="timeline-fill"></span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section section-alt" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">06 / Education</p>
+          <h2 id="education-title">Academic background</h2>
+        </header>
+        <ul class="edu-grid">
+          <li class="edu-card" data-reveal>
+            <p class="edu-years">2021 – 2023</p>
+            <h3>M.Sc. Information Technology</h3>
+            <p class="edu-school">Ramnarain Ruia College, Mumbai</p>
+            <p class="chip">CGPA: 8.8 / 10</p>
+          </li>
+          <li class="edu-card" data-reveal>
+            <p class="edu-years">2019 – 2021</p>
+            <h3>B.Sc. Information Technology</h3>
+            <p class="edu-school">Sheth N.K.T.T &amp; J.T.T College of Commerce, Mumbai</p>
+            <p class="chip">CGPA: 8.0 / 10</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-panel" data-reveal>
+          <p class="eyebrow">07 / Contact</p>
+          <h2 id="contact-title">Let's work together</h2>
+          <p class="section-lead">Have a project in mind? Email me, or find my work and background on Behance and LinkedIn.</p>
+          <a class="contact-mail" href="mailto:jadhavrohan970@gmail.com">jadhavrohan970@gmail.com <span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></a>
+          <ul class="contact-links">
+            <li><a class="btn btn-light" href="mailto:jadhavrohan970@gmail.com">Email me <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+            <li><a class="btn btn-outline-light" href="https://www.behance.net/rohanjadhav19" target="_blank" rel="noopener">Behance <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a></li>
+            <li><a class="btn btn-outline-light" href="https://www.linkedin.com/in/rohanjadhav19" target="_blank" rel="noopener">LinkedIn <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Rohan Ravi Jadhav · Mumbai, India</p>
+      <a class="text-link" href="#top">Back to top <svg class="icon" aria-hidden="true" style="transform:rotate(-90deg)"><use href="#i-arrow"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- Case study viewer (progressive enhancement: without JS the cards link straight to Behance) -->
+  <dialog class="viewer" id="viewer" aria-labelledby="viewerTitle">
+    <div class="viewer-bar">
+      <div class="viewer-heading">
+        <p class="work-type" id="viewerType"></p>
+        <h2 id="viewerTitle"></h2>
+      </div>
+      <button class="icon-btn" type="button" id="viewerClose"><span class="visually-hidden">Close case study</span><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="viewer-scroll" id="viewerScroll" tabindex="-1">
+      <p class="viewer-desc" id="viewerDesc"></p>
+      <div class="viewer-images" id="viewerImages"></div>
+    </div>
+    <div class="viewer-foot">
+      <div class="viewer-nav">
+        <button class="btn btn-ghost" type="button" id="viewerPrev"><svg class="icon" aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg>Previous<span class="visually-hidden"> project</span></button>
+        <button class="btn btn-ghost" type="button" id="viewerNext">Next<span class="visually-hidden"> project</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+      <a class="btn btn-primary" id="viewerLink" href="#" target="_blank" rel="noopener">View case study on Behance <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a>
+    </div>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
