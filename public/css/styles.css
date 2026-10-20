@@ -374,7 +374,6 @@ em { font-style: normal; }
 @media (min-width: 1024px) {
   .site-grid { grid-template-columns: repeat(6, 1fr); }
   .site-card { grid-column: span 2; }
-  .site-card:nth-child(n + 4) { grid-column: span 3; }
 }
 @media (hover: hover) and (pointer: fine) {
   .site-card:hover { box-shadow: var(--shadow); border-color: var(--line-strong); transform: translateY(-4px); }
