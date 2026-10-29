@@ -5,8 +5,10 @@
 
   const root = document.documentElement;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
   /* ---------- Theme (light default, dark opt-in) ---------- */
   const themeBtn = $('#themeToggle');
@@ -15,17 +17,34 @@
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
     themeBtn.setAttribute('aria-pressed', String(theme === 'dark'));
-    if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#0b0b0d' : '#f6f6f3');
+    if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#09090b' : '#f7f6f2');
   }
   applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
   themeBtn.addEventListener('click', () => {
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-    try { localStorage.setItem('theme', next); } catch (e) { /* storage unavailable */ }
+    const save = () => { try { localStorage.setItem('theme', next); } catch (e) { /* storage unavailable */ } };
+    if (!document.startViewTransition || reduceMotion) { applyTheme(next); save(); return; }
+
+    // Circle wipe from the toggle button, across the whole page.
+    const r = themeBtn.getBoundingClientRect();
+    const x = r.left + r.width / 2;
+    const y = r.top + r.height / 2;
+    const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+    root.classList.add('vt');
+    const vt = document.startViewTransition(() => applyTheme(next));
+    vt.ready.then(() => {
+      root.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { duration: 650, easing: 'cubic-bezier(.22, .7, .2, 1)', pseudoElement: '::view-transition-new(root)' }
+      );
+    }).catch(() => {});
+    const end = () => { root.classList.remove('vt'); save(); };
+    vt.finished.then(end, end);
   });
 
   /* ---------- Mobile nav (disclosure) ---------- */
+  const header = $('.site-header');
   const menuBtn = $('#menuToggle');
   const nav = $('#siteNav');
 
@@ -42,21 +61,71 @@
   document.addEventListener('click', (e) => {
     if (nav.classList.contains('open') && !nav.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false);
   });
-  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+  const desktopMq = window.matchMedia('(min-width: 1024px)');
+  desktopMq.addEventListener('change', (e) => { if (e.matches) setMenu(false); placePill(); });
 
-  /* ---------- Current section in nav ---------- */
+  /* ---------- Current section in nav + sliding indicator ---------- */
   const navLinks = $$('.site-nav a:not(.nav-cta)');
+  const pill = $('#navPill');
+
+  function placePill() {
+    if (!pill) return;
+    const active = $('.site-nav a[aria-current="true"]:not(.nav-cta)');
+    if (!active || !desktopMq.matches) { pill.classList.remove('is-on'); return; }
+    const list = active.closest('ul');
+    const a = active.getBoundingClientRect();
+    const l = list.getBoundingClientRect();
+    pill.style.width = a.width + 'px';
+    pill.style.transform = `translateX(${a.left - l.left}px)`;
+    pill.classList.add('is-on');
+  }
+
   if ('IntersectionObserver' in window) {
     const byId = new Map(navLinks.map((a) => [a.getAttribute('href').slice(1), a]));
+    const cta = $('.site-nav .nav-cta');
+    if (cta) byId.set(cta.getAttribute('href').slice(1), cta);
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        navLinks.forEach((a) => a.removeAttribute('aria-current'));
+        byId.forEach((a) => a.removeAttribute('aria-current'));
         const link = byId.get(entry.target.id);
         if (link) link.setAttribute('aria-current', 'true');
+        placePill();
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     byId.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+    window.addEventListener('resize', placePill);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(placePill);
+  }
+
+  /* ---------- Scroll-linked UI: progress bar, header hide/show, back-to-top ---------- */
+  const progress = $('#scrollProgress');
+  const toTop = $('#toTop');
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  function onScroll() {
+    const y = window.scrollY;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    if (progress) progress.style.transform = `scaleX(${clamp(y / max, 0, 1)})`;
+    if (toTop) toTop.classList.toggle('is-on', y > 700);
+    if (header && !nav.classList.contains('open')) {
+      const goingDown = y > lastY + 4;
+      const goingUp = y < lastY - 4;
+      if (goingDown && y > 160) header.classList.add('is-hidden');
+      else if (goingUp || y < 80) header.classList.remove('is-hidden');
+    }
+    lastY = y;
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  if (toTop) {
+    toTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      $('.logo').focus({ preventScroll: true });
+    });
   }
 
   /* ---------- Case study viewer ---------- */
@@ -65,9 +134,10 @@
   const els = {
     type: $('#viewerType'), title: $('#viewerTitle'), desc: $('#viewerDesc'),
     images: $('#viewerImages'), link: $('#viewerLink'), scroll: $('#viewerScroll'),
-    prev: $('#viewerPrev'), next: $('#viewerNext'), close: $('#viewerClose'),
+    prev: $('#viewerPrev'), next: $('#viewerNext'), close: $('#viewerClose'), count: $('#viewerCount'),
   };
   let current = -1;
+  let source = null; // element the viewer expands from / collapses back to
   let manifestPromise = null;
 
   // img/work/manifest.json: { slug: { cover, study: [{ n, w, h }] } }, written by tools/optimize-images.mjs
@@ -91,11 +161,12 @@
   async function fillViewer(index) {
     const card = cards[index];
     const slug = card.dataset.slug;
-    const title = $('.work-open', card).textContent.trim();
+    const title = card.dataset.title || $('.work-open', card).textContent.trim();
     els.type.textContent = $('.work-type', card).textContent;
     els.title.textContent = title;
     els.desc.textContent = $('.work-desc', card).textContent;
     els.link.href = $('.work-open', card).href;
+    if (els.count) els.count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
     els.images.replaceChildren();
     els.scroll.scrollTop = 0;
 
@@ -117,8 +188,8 @@
   }
 
   // Expand from / collapse to the card thumbnail (FLIP). Skipped for reduced motion.
-  function flip(index, direction, done) {
-    const media = $('.work-media', cards[index]);
+  function flip(direction, done) {
+    const media = source || $('.work-media', cards[current]);
     const from = media.getBoundingClientRect();
     const to = viewer.getBoundingClientRect();
     if (reduceMotion || !viewer.animate || !to.width || !from.width) { if (done) done(); return; }
@@ -131,24 +202,29 @@
     anim.onfinish = () => { viewer.style.transformOrigin = ''; if (done) done(); };
   }
 
-  function openViewer(index) {
+  function openViewer(index, from) {
     current = index;
+    source = from || $('.work-media', cards[index]);
     root.classList.add('modal-open');
     viewer.showModal();
     fillViewer(index);
-    flip(index, 'open');
+    flip('open');
     els.scroll.focus({ preventScroll: true });
   }
 
   function closeViewer() {
     if (!viewer.open) return;
-    flip(current, 'close', () => viewer.close());
+    flip('close', () => viewer.close());
   }
 
   function step(delta) {
     if (current < 0) return;
     current = (current + delta + cards.length) % cards.length;
+    source = $('.work-media', cards[current]);
     fillViewer(current);
+    if (!reduceMotion && els.scroll.animate) {
+      els.scroll.animate([{ opacity: 0, transform: `translateX(${delta * 16}px)` }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.22, .7, .2, 1)' });
+    }
   }
 
   viewer.addEventListener('close', () => {
@@ -167,16 +243,155 @@
   els.next.addEventListener('click', () => step(1));
 
   if (typeof viewer.showModal === 'function') {
+    const isPlainClick = (e) => !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0);
     cards.forEach((card, i) => {
       $('.work-open', card).addEventListener('click', (e) => {
         // Let modified clicks (new tab etc.) behave like a normal link.
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        if (!isPlainClick(e)) return;
         e.preventDefault();
         openViewer(i);
       });
     });
+    // The cover deck in the hero opens the same viewer, expanding from the tile.
+    $$('.strip-link[data-index]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const i = Number(link.dataset.index);
+        if (!isPlainClick(e) || !cards[i]) return;
+        e.preventDefault();
+        openViewer(i, link);
+      });
+    });
     // Warm the manifest on idle so the first open is instant.
     (window.requestIdleCallback || setTimeout)(loadManifest);
+  }
+
+  /* ---------- Small delights (no GSAP needed) ---------- */
+
+  // Project cards: a "View case study" pill that follows the pointer, plus a soft 3D tilt and shine.
+  if (finePointer) {
+    cards.forEach((card) => {
+      const pillEl = document.createElement('span');
+      pillEl.className = 'work-cursor';
+      pillEl.setAttribute('aria-hidden', 'true');
+      pillEl.innerHTML = 'View <svg class="icon"><use href="#i-arrow"/></svg>';
+      card.append(pillEl);
+      const media = $('.work-media', card);
+      const tilt = card.hasAttribute('data-tilt') && !reduceMotion;
+      let raf = 0;
+      let ev = null;
+      const paint = () => {
+        raf = 0;
+        const r = card.getBoundingClientRect();
+        const px = ev.clientX - r.left;
+        const py = ev.clientY - r.top;
+        pillEl.style.left = px + 'px';
+        pillEl.style.top = py + 'px';
+        if (tilt) {
+          const nx = px / r.width - 0.5;
+          const ny = py / r.height - 0.5;
+          card.style.setProperty('--ry', (nx * 5).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', (-ny * 5).toFixed(2) + 'deg');
+          if (media) {
+            const mr = media.getBoundingClientRect();
+            media.style.setProperty('--px', ((ev.clientX - mr.left) / mr.width * 100).toFixed(1) + '%');
+            media.style.setProperty('--py', ((ev.clientY - mr.top) / mr.height * 100).toFixed(1) + '%');
+          }
+        }
+      };
+      card.addEventListener('pointerenter', () => { if (tilt) card.classList.add('is-tilting'); });
+      card.addEventListener('pointermove', (e) => { ev = e; if (!raf) raf = requestAnimationFrame(paint); });
+      card.addEventListener('pointerleave', () => {
+        card.classList.remove('is-tilting');
+        card.style.removeProperty('--rx');
+        card.style.removeProperty('--ry');
+      });
+    });
+  }
+
+  // Magnetic buttons: lean gently toward the pointer.
+  if (finePointer && !reduceMotion) {
+    $$('[data-magnetic]').forEach((el) => {
+      let raf = 0;
+      let ev = null;
+      const paint = () => {
+        raf = 0;
+        const r = el.getBoundingClientRect();
+        const dx = ev.clientX - (r.left + r.width / 2);
+        const dy = ev.clientY - (r.top + r.height / 2);
+        el.style.transform = `translate(${(dx * 0.22).toFixed(1)}px, ${(dy * 0.3 - 2).toFixed(1)}px)`;
+      };
+      el.addEventListener('pointermove', (e) => { ev = e; if (!raf) raf = requestAnimationFrame(paint); });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    });
+  }
+
+  // Hero: a soft glow follows the pointer.
+  const hero = $('.hero');
+  const glow = $('.hero-glow');
+  if (hero && glow && finePointer && !reduceMotion) {
+    let raf = 0;
+    let ev = null;
+    const paint = () => {
+      raf = 0;
+      const r = hero.getBoundingClientRect();
+      glow.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+      glow.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+    };
+    hero.addEventListener('pointerenter', () => hero.classList.add('has-glow'));
+    hero.addEventListener('pointermove', (e) => { ev = e; if (!raf) raf = requestAnimationFrame(paint); });
+    hero.addEventListener('pointerleave', () => hero.classList.remove('has-glow'));
+  }
+
+  // Live local time in Mumbai (contact panel + about card).
+  const timeEls = $$('#localTime, #aboutTime');
+  if (timeEls.length && window.Intl && Intl.DateTimeFormat) {
+    try {
+      const fmt = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: true });
+      const tick = () => {
+        const t = fmt.format(new Date()).toUpperCase();
+        timeEls.forEach((el) => { el.textContent = el.id === 'localTime' ? t + ' IST' : t; });
+      };
+      tick();
+      setInterval(tick, 30000);
+    } catch (e) { /* keep the static fallback text */ }
+  }
+
+  // Contact: copy the email address.
+  const copyBtn = $('#copyMail');
+  if (copyBtn) {
+    if ((navigator.clipboard && navigator.clipboard.writeText) || document.queryCommandSupported) {
+      const label = $('.copy-label', copyBtn);
+      const use = $('use', copyBtn);
+      let timer = 0;
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(copyBtn.dataset.email);
+        } catch (e) {
+          // Older browsers / denied permission: fall back to a hidden selection.
+          const ta = document.createElement('textarea');
+          ta.value = copyBtn.dataset.email;
+          ta.setAttribute('readonly', '');
+          ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+          document.body.append(ta);
+          ta.select();
+          let ok = false;
+          try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+          ta.remove();
+          if (!ok) return;
+        }
+        copyBtn.classList.add('is-copied');
+        label.textContent = 'Copied';
+        use.setAttribute('href', '#i-check');
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          copyBtn.classList.remove('is-copied');
+          label.textContent = 'Copy email';
+          use.setAttribute('href', '#i-copy');
+        }, 2000);
+      });
+    } else {
+      copyBtn.parentElement.remove();
+    }
   }
 
   /* ---------- Motion (GSAP + ScrollTrigger) ----------
@@ -193,6 +408,29 @@
       ? Promise.resolve()
       : new Promise((r) => window.addEventListener('load', r, { once: true }));
     return Promise.race([Promise.all([fonts, load]), wait(7000)]);
+  }
+
+  // Wrap each word of a heading in a mask so it can rise into view. Keeps <em> styling.
+  function splitWords(el) {
+    const wrapNode = (node) => {
+      const words = node.textContent.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      words.forEach((w) => {
+        if (!w) return;
+        if (/^\s+$/.test(w)) { frag.append(document.createTextNode(' ')); return; }
+        const mask = document.createElement('span');
+        mask.className = 'w';
+        const inner = document.createElement('span');
+        inner.textContent = w;
+        mask.append(inner);
+        frag.append(mask);
+      });
+      node.replaceWith(frag);
+    };
+    Array.from(el.childNodes).forEach((node) => {
+      if (node.nodeType === 3) wrapNode(node);
+      else if (node.nodeType === 1) Array.from(node.childNodes).forEach((n) => { if (n.nodeType === 3) wrapNode(n); });
+    });
   }
 
   function heroIn() {
@@ -277,6 +515,18 @@
         onEnter: (batch) => gsap.fromTo(batch, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', stagger: 0.08, overwrite: true, clearProps: 'transform' }),
       });
 
+      /* Section headings: words rise out of a mask */
+      $$('[data-split]').forEach((h) => {
+        splitWords(h);
+        const words = $$('.w > span', h);
+        ScrollTrigger.create({
+          trigger: h,
+          start: 'top 88%',
+          once: true,
+          onEnter: () => gsap.to(words, { y: 0, duration: 1, ease: 'power4.out', stagger: 0.05, overwrite: true }),
+        });
+      });
+
       /* Project cards: rise in, cover image settling from a slight zoom */
       cards.forEach((card) => {
         const img = $('.work-media img', card);
@@ -293,24 +543,36 @@
         });
       });
 
-
-      /* Hero headline drifts up a touch as you leave it */
-      gsap.to('.hero-title', {
-        yPercent: -10, ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
-      });
-
-      /* Experience: line fills as you read, dots light up */
+      /* Experience: the rail fills as you read, and the item in view lights up */
       const fill = $('.timeline-fill');
-      if (fill) {
-        gsap.fromTo(fill, { height: '0%' }, {
-          height: '100%', ease: 'none',
-          scrollTrigger: { trigger: '.timeline', start: 'top 70%', end: 'bottom 70%', scrub: true },
+      const timeline = $('.timeline');
+      if (fill && timeline) {
+        gsap.to(fill, { height: '100%', ease: 'none', scrollTrigger: { trigger: timeline, start: 'top 60%', end: 'bottom 60%', scrub: 0.4 } });
+        $$('.timeline-item').forEach((item) => {
+          ScrollTrigger.create({
+            trigger: item, start: 'top 60%', end: 'bottom 60%',
+            onToggle: (self) => item.classList.toggle('is-active', self.isActive),
+          });
         });
       }
-      $$('.timeline-item').forEach((item) => {
-        ScrollTrigger.create({ trigger: item, start: 'top 70%', end: 'bottom 70%', toggleClass: { targets: item, className: 'is-active' } });
+
+      /* Footer wordmark fills with ink as it scrolls into view */
+      const footerFill = $('#footerFill');
+      if (footerFill) {
+        gsap.to(footerFill, { clipPath: 'inset(0 0% 0 0)', ease: 'none', scrollTrigger: { trigger: '.site-footer', start: 'top 95%', end: 'bottom 100%', scrub: 0.6 } });
+      }
+
+      /* Hero: headline drifts up and the cover deck spreads a touch as you leave */
+      gsap.to('.hero-title', {
+        yPercent: -8, opacity: 0.6, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
       });
+      if (window.matchMedia('(min-width: 900px)').matches) {
+        $$('.strip-tile').forEach((tile, i, all) => {
+          const dir = i - (all.length - 1) / 2;
+          gsap.to(tile, { x: dir * 40, ease: 'none', scrollTrigger: { trigger: '.hero-strip', start: 'top 80%', end: 'bottom top', scrub: true } });
+        });
+      }
 
       // Loading screen first; the hero plays as the curtain leaves.
       runPreloader(heroIn).then(() => ScrollTrigger.refresh());

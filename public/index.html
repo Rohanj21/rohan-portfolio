@@ -6,17 +6,20 @@
   <title>Rohan Ravi Jadhav — UX/UI Designer · Graphic Designer · WordPress Developer</title>
   <meta name="description" content="Portfolio of Rohan Ravi Jadhav, a UX/UI designer, graphic designer, WordPress developer and video editor with 4+ years of experience across web and mobile.">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f6f6f3">
+  <meta name="theme-color" content="#f7f6f2">
 
   <link rel="canonical" href="https://rohanj21.github.io/rohan-portfolio/">
-  <!-- Add og:image (1200x630, absolute URL) once the image exists. -->
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rohanj21.github.io/rohan-portfolio/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://rohanj21.github.io/rohan-portfolio/">
   <meta property="og:title" content="Rohan Ravi Jadhav — UX/UI Designer">
   <meta property="og:description" content="UX/UI Designer · Graphic Designer · WordPress Developer · Video Editor. Based in Mumbai, India.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Rohan Ravi Jadhav — UX/UI Designer">
   <meta name="twitter:description" content="UX/UI Designer · Graphic Designer · WordPress Developer · Video Editor.">
+  <meta name="twitter:image" content="https://rohanj21.github.io/rohan-portfolio/img/og.png">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -64,11 +67,19 @@
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 15V6a2 2 0 0 1 2-2h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M9 9v12" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="m12 19 7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5-10-5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5M22 9v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
   </svg>
 
   <!-- Loading screen. Only displayed when JS + motion are available (html.anim); see css/styles.css and js/main.js. -->
   <div class="preloader" id="preloader" role="status" aria-label="Loading portfolio">
+    <span class="pl-glow" aria-hidden="true"></span>
     <div class="pl-top" aria-hidden="true">
       <span>RJ</span>
       <span>Portfolio / 2026</span>
@@ -86,14 +97,16 @@
   </div>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><i id="scrollProgress"></i></div>
 
   <header class="site-header" id="top">
     <div class="container">
       <div class="header-inner">
-        <a class="logo" href="#top" aria-label="Rohan Jadhav, back to top"><span class="logo-mark" aria-hidden="true">RJ</span><span class="logo-text">Rohan Jadhav</span></a>
+        <a class="logo" href="#top" aria-label="Rohan Jadhav, back to top"><span class="logo-mark" aria-hidden="true"><span>RJ</span></span><span class="logo-text">Rohan Jadhav</span></a>
 
         <nav class="site-nav" id="siteNav" aria-label="Primary">
           <ul>
+            <li class="nav-pill" id="navPill" aria-hidden="true"></li>
             <li><a href="#projects">Work</a></li>
             <li><a href="#websites">Live sites</a></li>
             <li><a href="#about">About</a></li>
@@ -124,52 +137,108 @@
 
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
+      <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+
       <div class="container hero-inner">
 
         <p class="avail" data-hero><span class="avail-dot" aria-hidden="true"></span>Available for freelance · Mumbai, India</p>
 
         <h1 id="hero-title" class="hero-title">
           <span class="hero-line"><span class="hero-line-inner">UX/UI designer</span></span>
-          <span class="hero-line"><span class="hero-line-inner">crafting intuitive</span></span>
-          <span class="hero-line"><span class="hero-line-inner"><em>digital experiences.</em></span></span>
+          <span class="hero-line"><span class="hero-line-inner">crafting <em>intuitive</em></span></span>
+          <span class="hero-line"><span class="hero-line-inner"><em class="grad">digital experiences.</em></span></span>
         </h1>
 
-        <p class="hero-lead" data-hero>four years of designing for web and mobile, from wireframes and prototypes in Figma to live products.</p>
+        <p class="hero-lead" data-hero>Four years of designing for web and mobile, from wireframes and prototypes in Figma to live products built on WordPress.</p>
 
         <div class="hero-actions" data-hero>
-          <a class="btn btn-primary btn-lg" href="#projects">View work <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-ghost btn-lg" href="#contact">Get in touch</a>
+          <a class="btn btn-primary btn-lg" href="#projects" data-magnetic>View work <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost btn-lg" href="#contact" data-magnetic>Get in touch</a>
         </div>
 
-        <dl class="hero-meta" data-hero>
-          <div><dt>Experience</dt><dd>4+ years</dd></div>
-          <div><dt>Delivered</dt><dd>6+ live websites</dd></div>
-          <div><dt>Platforms</dt><dd>Web &amp; mobile</dd></div>
-          <div><dt>Industries</dt><dd>E-Commerce · SaaS · FinTech</dd></div>
-        </dl>
+        <ul class="hero-facts" data-hero aria-label="At a glance">
+          <li><b>4+</b><span>years</span></li>
+          <li><b>6</b><span>live sites</span></li>
+          <li><b>5</b><span>case studies</span></li>
+        </ul>
 
-        <div class="hero-tools" data-hero>
-          <p class="hero-tools-label">Tools</p>
-          <ul aria-label="Tools">
-            <li>Figma</li><li>Adobe XD</li><li>Sketch</li><li>Photoshop</li><li>Illustrator</li><li>Elementor</li><li>Divi</li><li>Premiere Pro</li>
+        <div class="hero-strip" data-hero>
+          <ul class="strip-track" id="heroStrip" aria-label="Project covers">
+          <li class="strip-tile" style="--r:-6deg;--y:-10px">
+            <a class="strip-link" href="#projects" data-index="0" aria-label="PulseMetrics analytics dashboard case study">
+              <picture>
+                <source type="image/avif" srcset="img/work/pulsemetrics/cover-640.avif">
+                <source type="image/webp" srcset="img/work/pulsemetrics/cover-640.webp">
+                <img src="img/work/pulsemetrics/cover-640.jpg" width="640" height="480" alt="" decoding="async">
+              </picture>
+            </a>
+          </li>
+          <li class="strip-tile" style="--r:3deg;--y:18px">
+            <a class="strip-link" href="#projects" data-index="1" aria-label="MediCare+ healthcare case study">
+              <picture>
+                <source type="image/avif" srcset="img/work/medicare/cover-640.avif">
+                <source type="image/webp" srcset="img/work/medicare/cover-640.webp">
+                <img src="img/work/medicare/cover-640.jpg" width="640" height="480" alt="" decoding="async">
+              </picture>
+            </a>
+          </li>
+          <li class="strip-tile" style="--r:-2deg;--y:-4px">
+            <a class="strip-link" href="#projects" data-index="2" aria-label="StudyNest mobile app case study">
+              <picture>
+                <source type="image/avif" srcset="img/work/studynest/cover-640.avif">
+                <source type="image/webp" srcset="img/work/studynest/cover-640.webp">
+                <img src="img/work/studynest/cover-640.jpg" width="640" height="480" alt="" decoding="async">
+              </picture>
+            </a>
+          </li>
+          <li class="strip-tile" style="--r:4deg;--y:14px">
+            <a class="strip-link" href="#projects" data-index="3" aria-label="Kora ethnic wear shopping app case study">
+              <picture>
+                <source type="image/avif" srcset="img/work/kora/cover-640.avif">
+                <source type="image/webp" srcset="img/work/kora/cover-640.webp">
+                <img src="img/work/kora/cover-640.jpg" width="640" height="480" alt="" decoding="async">
+              </picture>
+            </a>
+          </li>
+          <li class="strip-tile" style="--r:-4deg;--y:-12px">
+            <a class="strip-link" href="#projects" data-index="4" aria-label="FinFlow digital lending platform case study">
+              <picture>
+                <source type="image/avif" srcset="img/work/finflow/cover-640.avif">
+                <source type="image/webp" srcset="img/work/finflow/cover-640.webp">
+                <img src="img/work/finflow/cover-640.jpg" width="640" height="480" alt="" decoding="async">
+              </picture>
+            </a>
+          </li>
           </ul>
         </div>
 
+      </div>
+
+      <div class="marquee" aria-label="Tools">
+        <p class="marquee-label">Tools I work with</p>
+        <div class="marquee-track">
+          <ul class="marquee-list"><li>Figma</li><li>Adobe XD</li><li>Sketch</li><li>Photoshop</li><li>Illustrator</li><li>WordPress</li><li>Elementor</li><li>Divi</li><li>Premiere Pro</li><li>After Effects</li><li>Canva</li></ul>
+          <ul class="marquee-list" aria-hidden="true"><li>Figma</li><li>Adobe XD</li><li>Sketch</li><li>Photoshop</li><li>Illustrator</li><li>WordPress</li><li>Elementor</li><li>Divi</li><li>Premiere Pro</li><li>After Effects</li><li>Canva</li></ul>
+        </div>
       </div>
     </section>
 
     <!-- FEATURED PROJECTS -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <header class="section-head" data-reveal>
-          <p class="eyebrow">01 / Selected work</p>
-          <h2 id="projects-title">Selected projects</h2>
-          <p class="section-lead">Concept projects and case studies, published on Behance. Select one to open the full case study images.</p>
+        <header class="section-head section-head--row" data-reveal>
+          <div>
+            <p class="eyebrow"><b>01</b> Selected work</p>
+            <h2 id="projects-title" data-split>Case studies, <em>end to end.</em></h2>
+            <p class="section-lead">Concept projects published on Behance. Select one to open the full case study right here.</p>
+          </div>
+          <a class="btn btn-ghost" href="https://www.behance.net/rohanjadhav19" target="_blank" rel="noopener">All work on Behance <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a>
         </header>
 
         <div class="work-list" id="projectGrid">
 
-          <article class="work work--lead" data-slug="pulsemetrics">
+          <article class="work work--lead" data-slug="pulsemetrics" data-tilt>
             <div class="work-media">
               <picture>
                 <source type="image/avif" srcset="img/work/pulsemetrics/cover-640.avif 640w, img/work/pulsemetrics/cover-1000.avif 1000w, img/work/pulsemetrics/cover-1500.avif 1500w" sizes="(min-width:1024px) 720px, 100vw">
@@ -181,11 +250,12 @@
               <p class="work-meta"><span class="work-no">01</span><span class="work-type">Concept · SaaS · Web</span></p>
               <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/256501935/PulseMetrics-Analytics-Dashboard-UXUI" target="_blank" rel="noopener">PulseMetrics | Analytics Dashboard UX/UI</a></h3>
               <p class="work-desc">A concept UX/UI case study for a SaaS analytics dashboard.</p>
+              <ul class="chips work-tags" aria-label="Tools"><li>Figma</li><li>Dashboard</li><li>Design system</li></ul>
               <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
             </div>
           </article>
 
-          <article class="work" data-slug="medicare">
+          <article class="work" data-slug="medicare" data-tilt>
             <div class="work-media">
               <picture>
                 <source type="image/avif" srcset="img/work/medicare/cover-640.avif 640w, img/work/medicare/cover-1000.avif 1000w, img/work/medicare/cover-1500.avif 1500w" sizes="(min-width:1024px) 580px, 100vw">
@@ -197,11 +267,12 @@
               <p class="work-meta"><span class="work-no">02</span><span class="work-type">Concept · Healthcare · Web + mobile</span></p>
               <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/256398857/MediCare-Healthcare-UXUI-Case-Study" target="_blank" rel="noopener">MediCare+ | Healthcare UX/UI Case Study</a></h3>
               <p class="work-desc">A concept UX/UI case study for a healthcare product, designed for web and mobile.</p>
+              <ul class="chips work-tags" aria-label="Tools"><li>Figma</li><li>Web + mobile</li></ul>
               <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
             </div>
           </article>
 
-          <article class="work" data-slug="studynest">
+          <article class="work" data-slug="studynest" data-tilt>
             <div class="work-media">
               <picture>
                 <source type="image/avif" srcset="img/work/studynest/cover-640.avif 640w, img/work/studynest/cover-1000.avif 1000w, img/work/studynest/cover-1500.avif 1500w" sizes="(min-width:1024px) 580px, 100vw">
@@ -213,11 +284,12 @@
               <p class="work-meta"><span class="work-no">03</span><span class="work-type">Concept · Mobile app</span></p>
               <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/256017925/StudyNest-Mobile-App-UXUI-Case-Study" target="_blank" rel="noopener">StudyNest | Mobile App UX/UI Case Study</a></h3>
               <p class="work-desc">A concept UX/UI case study for a mobile app built around study focus.</p>
+              <ul class="chips work-tags" aria-label="Tools"><li>Figma</li><li>iOS · Android</li></ul>
               <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
             </div>
           </article>
 
-          <article class="work" data-slug="kora">
+          <article class="work" data-slug="kora" data-tilt>
             <div class="work-media">
               <picture>
                 <source type="image/avif" srcset="img/work/kora/cover-640.avif 640w, img/work/kora/cover-1000.avif 1000w, img/work/kora/cover-1500.avif 1418w" sizes="(min-width:1024px) 580px, 100vw">
@@ -229,11 +301,12 @@
               <p class="work-meta"><span class="work-no">04</span><span class="work-type">Concept · E-commerce · Mobile app</span></p>
               <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/257082029/Kora-Indian-Ethnic-Wear-Shopping-App" target="_blank" rel="noopener">Kora - Indian Ethnic Wear Shopping App</a></h3>
               <p class="work-desc">A concept UI/UX project for an Indian ethnic wear shopping app.</p>
+              <ul class="chips work-tags" aria-label="Tools"><li>Figma</li><li>E-commerce</li></ul>
               <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
             </div>
           </article>
 
-          <article class="work" data-slug="finflow">
+          <article class="work" data-slug="finflow" data-tilt>
             <div class="work-media">
               <picture>
                 <source type="image/avif" srcset="img/work/finflow/cover-640.avif 640w, img/work/finflow/cover-1000.avif 1000w, img/work/finflow/cover-1500.avif 1500w" sizes="(min-width:1024px) 580px, 100vw">
@@ -245,6 +318,7 @@
               <p class="work-meta"><span class="work-no">05</span><span class="work-type">Concept · Fintech</span></p>
               <h3 class="work-title"><a class="work-open" href="https://www.behance.net/gallery/257027731/FinFlow-Digital-Lending-Platform" target="_blank" rel="noopener">FinFlow - Digital Lending Platform</a></h3>
               <p class="work-desc">A concept project for a digital lending platform.</p>
+              <ul class="chips work-tags" aria-label="Tools"><li>Figma</li><li>Fintech</li><li>Web + mobile</li></ul>
               <span class="work-cta">Open case study <span class="arrow-btn"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
             </div>
           </article>
@@ -252,7 +326,7 @@
         </div>
 
         <p class="more-link" data-reveal>
-          <a class="btn btn-ghost" href="https://www.behance.net/rohanjadhav19" target="_blank" rel="noopener">More work on Behance <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a>
+          <a class="btn btn-primary" href="https://www.behance.net/rohanjadhav19" target="_blank" rel="noopener" data-magnetic>More work on Behance <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a>
         </p>
       </div>
     </section>
@@ -261,46 +335,47 @@
     <section class="section section-alt" id="websites" aria-labelledby="websites-title">
       <div class="container">
         <header class="section-head" data-reveal>
-          <p class="eyebrow">02 / Shipped work</p>
-          <h2 id="websites-title">Live websites &amp; products</h2>
+          <p class="eyebrow"><b>02</b> Shipped work</p>
+          <h2 id="websites-title" data-split>Live websites <em>&amp; products.</em></h2>
+          <p class="section-lead">Designed and built on WordPress, from first wireframe to launch.</p>
         </header>
 
-        <ul class="site-grid">
-          <li class="site-card" data-reveal>
-            <div class="site-top"><p class="chip">UX/UI Designer &amp; WordPress Developer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
-            <h3>IntelliCraft</h3>
-            <p class="site-desc">Designed and developed the complete website including layout, visual identity, and WordPress build with custom page structure and branded components, and also designed the entire IntelliCraft product.</p>
-            <a class="site-link" href="https://intellicraft.io/" target="_blank" rel="noopener">intellicraft.io<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <ul class="site-list">
+          <li class="site-row" data-reveal>
+            <span class="site-no" aria-hidden="true">01</span>
+            <h3 class="site-name">IntelliCraft <a class="site-domain" href="https://intellicraft.io/" target="_blank" rel="noopener">intellicraft.io<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+            <p class="site-desc"><span class="chip site-role">UX/UI Designer &amp; WordPress Developer</span>Complete website design and WordPress build with custom page structure and branded components. Also designed the entire IntelliCraft product.</p>
+            <span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span>
           </li>
-          <li class="site-card" data-reveal>
-            <div class="site-top"><p class="chip">UX/UI Designer &amp; WordPress Developer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
-            <h3>Arceus Infotech</h3>
-            <p class="site-desc">End-to-end website design and WordPress development for an IT services company, including service pages, branding elements, and responsive layout.</p>
-            <a class="site-link" href="https://arceusinfotech.com/" target="_blank" rel="noopener">arceusinfotech.com<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <li class="site-row" data-reveal>
+            <span class="site-no" aria-hidden="true">02</span>
+            <h3 class="site-name">Arceus Infotech <a class="site-domain" href="https://arceusinfotech.com/" target="_blank" rel="noopener">arceusinfotech.com<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+            <p class="site-desc"><span class="chip site-role">UX/UI Designer &amp; WordPress Developer</span>End-to-end website design and WordPress development for an IT services company, including service pages, branding elements and a responsive layout.</p>
+            <span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span>
           </li>
-          <li class="site-card" data-reveal>
-            <div class="site-top"><p class="chip">UX/UI &amp; WordPress Developer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
-            <h3>ArcNetworks</h3>
-            <p class="site-desc">Led all design work with a responsive UI design, graphic assets, and WordPress website development.</p>
-            <a class="site-link" href="https://arcnetworks.in/" target="_blank" rel="noopener">arcnetworks.in<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <li class="site-row" data-reveal>
+            <span class="site-no" aria-hidden="true">03</span>
+            <h3 class="site-name">ArcNetworks <a class="site-domain" href="https://arcnetworks.in/" target="_blank" rel="noopener">arcnetworks.in<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+            <p class="site-desc"><span class="chip site-role">UX/UI &amp; WordPress Developer</span>Led all design work with a responsive UI, graphic assets and WordPress website development.</p>
+            <span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span>
           </li>
-          <li class="site-card" data-reveal>
-            <div class="site-top"><p class="chip">Senior UX/UI Designer &amp; WordPress Developer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
-            <h3>Nashik Kumbh Website</h3>
-            <p class="site-desc">Designed the whole website along with its WordPress development.</p>
-            <a class="site-link" href="http://nashik-kumbh.idcle.com/" target="_blank" rel="noopener">nashik-kumbh.idcle.com<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <li class="site-row" data-reveal>
+            <span class="site-no" aria-hidden="true">04</span>
+            <h3 class="site-name">Nashik Kumbh <a class="site-domain" href="http://nashik-kumbh.idcle.com/" target="_blank" rel="noopener">nashik-kumbh.idcle.com<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+            <p class="site-desc"><span class="chip site-role">Senior UX/UI Designer &amp; WordPress Developer</span>Designed the whole website along with its WordPress development.</p>
+            <span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span>
           </li>
-          <li class="site-card" data-reveal>
-            <div class="site-top"><p class="chip">UX/UI, Graphic Designer &amp; WordPress Developer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
-            <h3>Fr. Conceicao Rodrigues College Website</h3>
-            <p class="site-desc">Designed the whole website according to the client's requirements and developed the whole site on WordPress.</p>
-            <a class="site-link" href="https://frcrce-stage.idcle.com/" target="_blank" rel="noopener">frcrce-stage.idcle.com<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <li class="site-row" data-reveal>
+            <span class="site-no" aria-hidden="true">05</span>
+            <h3 class="site-name">Fr. Conceicao Rodrigues College <a class="site-domain" href="https://frcrce-stage.idcle.com/" target="_blank" rel="noopener">frcrce-stage.idcle.com<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+            <p class="site-desc"><span class="chip site-role">UX/UI, Graphic Designer &amp; WordPress Developer</span>Designed the whole website to the client's requirements and developed the full site on WordPress.</p>
+            <span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span>
           </li>
-          <li class="site-card" data-reveal>
-            <div class="site-top"><p class="chip">UX/UI, Graphic Designer &amp; WordPress Developer</p><span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></div>
-            <h3>Maharashtra Public School Website</h3>
-            <p class="site-desc">Designed the whole website according to the client's requirements and developed the whole site on WordPress.</p>
-            <a class="site-link" href="https://mps-india.org/" target="_blank" rel="noopener">mps-india.org<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <li class="site-row" data-reveal>
+            <span class="site-no" aria-hidden="true">06</span>
+            <h3 class="site-name">Maharashtra Public School <a class="site-domain" href="https://mps-india.org/" target="_blank" rel="noopener">mps-india.org<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+            <p class="site-desc"><span class="chip site-role">UX/UI, Graphic Designer &amp; WordPress Developer</span>Designed the whole website to the client's requirements and developed the full site on WordPress.</p>
+            <span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span>
           </li>
         </ul>
       </div>
@@ -311,17 +386,50 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-copy" data-reveal>
-            <p class="eyebrow">03 / About</p>
-            <h2 id="about-title">Designer and digital creative</h2>
+            <p class="eyebrow"><b>03</b> About</p>
+            <h2 id="about-title" data-split>Designer and <em>digital creative.</em></h2>
             <p class="about-lead">I'm a results-driven UX/UI designer and digital creative with 4+ years of experience crafting intuitive digital experiences across web and mobile platforms. I have led design projects end-to-end, from wireframing and prototyping in Figma to delivering pixel-perfect, live products.</p>
-            <p>I'm skilled in WordPress development, graphic design, and video production, and I enjoy collaborating with cross-functional development teams to turn complex client requirements into clean, user-centric interfaces.</p>
+            <p>I'm skilled in WordPress development, graphic design and video production, and I enjoy collaborating with cross-functional development teams to turn complex client requirements into clean, user-centric interfaces.</p>
           </div>
-          <dl class="facts">
-            <div class="fact fact--big" data-reveal><dt>Experience</dt><dd>4+ years</dd></div>
-            <div class="fact" data-reveal><dt>Industries served</dt><dd>E-Commerce · IT Services &amp; SaaS · Finance &amp; FinTech</dd></div>
-            <div class="fact" data-reveal><dt>Based in</dt><dd>Mumbai, India</dd></div>
+          <dl class="about-side">
+            <div class="fact fact--big" data-reveal><dt>Experience</dt><dd>4+ <small>years designing for web and mobile</small></dd></div>
+            <div class="fact fact--time" data-reveal><dt>Local time · Mumbai</dt><dd><span class="big-time" id="aboutTime">IST</span><span class="sub">UTC +5:30 · open to remote</span></dd></div>
+            <div class="fact" data-reveal><dt>Industries served</dt><dd><ul class="industries chips"><li>E-Commerce</li><li>IT Services &amp; SaaS</li><li>Finance &amp; FinTech</li></ul></dd></div>
           </dl>
         </div>
+
+        <div class="process-head" data-reveal>
+          <div>
+            <p class="eyebrow">How I work</p>
+            <h3>From a brief to a shipped product.</h3>
+          </div>
+        </div>
+        <ol class="process">
+          <li class="process-step" data-reveal>
+            <span class="ghost-no" aria-hidden="true">01</span>
+            <span class="process-no">01</span>
+            <h3>Discover</h3>
+            <p>Understand the goal, the users and the constraints before drawing a single screen.</p>
+          </li>
+          <li class="process-step" data-reveal>
+            <span class="ghost-no" aria-hidden="true">02</span>
+            <span class="process-no">02</span>
+            <h3>Define</h3>
+            <p>Map user flows, structure and content so every interface has one clear job.</p>
+          </li>
+          <li class="process-step" data-reveal>
+            <span class="ghost-no" aria-hidden="true">03</span>
+            <span class="process-no">03</span>
+            <h3>Design</h3>
+            <p>Wireframes to high-fidelity screens and clickable prototypes in Figma, iterated on feedback.</p>
+          </li>
+          <li class="process-step" data-reveal>
+            <span class="ghost-no" aria-hidden="true">04</span>
+            <span class="process-no">04</span>
+            <h3>Build &amp; ship</h3>
+            <p>Develop on WordPress or hand off to developers, then test on real devices before launch.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -329,33 +437,37 @@
     <section class="section section-alt" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <header class="section-head" data-reveal>
-          <p class="eyebrow">04 / Core skills</p>
-          <h2 id="skills-title">Tools and expertise</h2>
+          <p class="eyebrow"><b>04</b> Core skills</p>
+          <h2 id="skills-title" data-split>Tools and <em>expertise.</em></h2>
         </header>
         <ul class="skill-grid">
           <li class="skill" data-reveal>
+            <span class="skill-icon" aria-hidden="true"><svg class="icon"><use href="#i-layout"/></svg></span>
             <h3>UX/UI Design</h3>
             <p>Wireframing, prototyping, user flows, design systems.</p>
             <ul class="chips"><li>Figma</li><li>Adobe XD</li><li>Sketch</li></ul>
           </li>
           <li class="skill" data-reveal>
+            <span class="skill-icon" aria-hidden="true"><svg class="icon"><use href="#i-pen"/></svg></span>
             <h3>Graphic Design</h3>
-            <p>Logo designing, icons, illustrations, marketing visuals.</p>
+            <p>Logo design, icons, illustrations, marketing visuals.</p>
             <ul class="chips"><li>Photoshop</li><li>Illustrator</li><li>Canva</li></ul>
           </li>
           <li class="skill" data-reveal>
+            <span class="skill-icon" aria-hidden="true"><svg class="icon"><use href="#i-globe"/></svg></span>
             <h3>WordPress Dev</h3>
             <p>Custom theme setup, page building, plugin configuration.</p>
             <ul class="chips"><li>Elementor</li><li>Divi</li></ul>
           </li>
           <li class="skill" data-reveal>
+            <span class="skill-icon" aria-hidden="true"><svg class="icon"><use href="#i-film"/></svg></span>
             <h3>Video Editing</h3>
             <p>Promotional videos, motion graphics, article templates.</p>
             <ul class="chips"><li>Premiere Pro</li><li>After Effects</li></ul>
           </li>
           <li class="skill skill--wide skill--feature" data-reveal>
             <h3>Collaboration</h3>
-            <p>Cross-functional team leadership.</p>
+            <p>Cross-functional <em>team leadership.</em></p>
           </li>
           <li class="skill skill--wide" data-reveal>
             <h3>Languages</h3>
@@ -373,8 +485,8 @@
     <section class="section" id="experience" aria-labelledby="experience-title">
       <div class="container">
         <header class="section-head" data-reveal>
-          <p class="eyebrow">05 / Experience</p>
-          <h2 id="experience-title">Professional experience</h2>
+          <p class="eyebrow"><b>05</b> Experience</p>
+          <h2 id="experience-title" data-split>Professional <em>experience.</em></h2>
           <p class="section-lead">Design and WordPress work across product, agency and freelance engagements.</p>
         </header>
 
@@ -439,17 +551,19 @@
     <section class="section section-alt" id="education" aria-labelledby="education-title">
       <div class="container">
         <header class="section-head" data-reveal>
-          <p class="eyebrow">06 / Education</p>
-          <h2 id="education-title">Academic background</h2>
+          <p class="eyebrow"><b>06</b> Education</p>
+          <h2 id="education-title" data-split>Academic <em>background.</em></h2>
         </header>
         <ul class="edu-grid">
           <li class="edu-card" data-reveal>
+            <svg class="cap" aria-hidden="true"><use href="#i-cap"/></svg>
             <p class="edu-years">2021 – 2023</p>
             <h3>M.Sc. Information Technology</h3>
             <p class="edu-school">Ramnarain Ruia College, Mumbai</p>
             <p class="chip">CGPA: 8.8 / 10</p>
           </li>
           <li class="edu-card" data-reveal>
+            <svg class="cap" aria-hidden="true"><use href="#i-cap"/></svg>
             <p class="edu-years">2019 – 2021</p>
             <h3>B.Sc. Information Technology</h3>
             <p class="edu-school">Sheth N.K.T.T &amp; J.T.T College of Commerce, Mumbai</p>
@@ -463,14 +577,18 @@
     <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <div class="contact-panel" data-reveal>
-          <p class="eyebrow">07 / Contact</p>
-          <h2 id="contact-title">Let's work together</h2>
+          <div class="contact-top">
+            <p class="eyebrow"><b>07</b> Contact</p>
+            <p class="contact-time"><span class="avail-dot" aria-hidden="true"></span>Mumbai · <time id="localTime">IST (UTC+5:30)</time></p>
+          </div>
+          <h2 id="contact-title">Let's build something <em>people love.</em></h2>
           <p class="section-lead">Have a project in mind? Email me, or find my work and background on Behance and LinkedIn.</p>
           <a class="contact-mail" href="mailto:jadhavrohan970@gmail.com">jadhavrohan970@gmail.com <span class="arrow-btn" aria-hidden="true"><svg class="icon"><use href="#i-up-right"/></svg></span></a>
           <ul class="contact-links">
-            <li><a class="btn btn-light" href="mailto:jadhavrohan970@gmail.com">Email me <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
-            <li><a class="btn btn-outline-light" href="https://www.behance.net/rohanjadhav19" target="_blank" rel="noopener">Behance <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a></li>
-            <li><a class="btn btn-outline-light" href="https://www.linkedin.com/in/rohanjadhav19" target="_blank" rel="noopener">LinkedIn <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a></li>
+            <li><a class="btn btn-light" href="mailto:jadhavrohan970@gmail.com" data-magnetic>Email me <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+            <li class="js-only"><button class="btn btn-outline-light" type="button" id="copyMail" data-email="jadhavrohan970@gmail.com" data-magnetic><span class="copy-label">Copy email</span> <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg></button></li>
+            <li><a class="btn btn-outline-light" href="https://www.behance.net/rohanjadhav19" target="_blank" rel="noopener" data-magnetic>Behance <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a></li>
+            <li><a class="btn btn-outline-light" href="https://www.linkedin.com/in/rohanjadhav19" target="_blank" rel="noopener" data-magnetic>LinkedIn <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a></li>
           </ul>
         </div>
       </div>
@@ -478,11 +596,19 @@
   </main>
 
   <footer class="site-footer">
+    <p class="footer-mark" aria-hidden="true"><span class="footer-mark-inner">Rohan Jadhav<span class="footer-mark-fill" id="footerFill">Rohan Jadhav</span></span></p>
     <div class="container footer-inner">
       <p>© 2026 Rohan Ravi Jadhav · Mumbai, India</p>
+      <ul class="footer-social" aria-label="Profiles">
+        <li><a href="https://www.behance.net/rohanjadhav19" target="_blank" rel="noopener">Behance</a></li>
+        <li><a href="https://www.linkedin.com/in/rohanjadhav19" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:jadhavrohan970@gmail.com">Email</a></li>
+      </ul>
       <a class="text-link" href="#top">Back to top <svg class="icon" aria-hidden="true" style="transform:rotate(-90deg)"><use href="#i-arrow"/></svg></a>
     </div>
   </footer>
+
+  <button class="to-top js-only" id="toTop" type="button"><span class="visually-hidden">Back to top</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
 
   <!-- Case study viewer (progressive enhancement: without JS the cards link straight to Behance) -->
   <dialog class="viewer" id="viewer" aria-labelledby="viewerTitle">
@@ -502,6 +628,7 @@
         <button class="btn btn-ghost" type="button" id="viewerPrev"><svg class="icon" aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg>Previous<span class="visually-hidden"> project</span></button>
         <button class="btn btn-ghost" type="button" id="viewerNext">Next<span class="visually-hidden"> project</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </div>
+      <span class="viewer-count" id="viewerCount" aria-live="polite"></span>
       <a class="btn btn-primary" id="viewerLink" href="#" target="_blank" rel="noopener">View case study on Behance <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg><span class="visually-hidden">(opens in a new tab)</span></a>
     </div>
   </dialog>
