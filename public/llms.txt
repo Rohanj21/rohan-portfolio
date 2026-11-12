@@ -32,7 +32,7 @@ This file summarises the portfolio at https://rohanj21.github.io/rohan-portfolio
 - AIO (AI Optimisation): ensuring brand visibility in conversational AI assistants and next-gen search platforms
 - Client highlight: managed end-to-end SEO for LendFoundry (fintech/SaaS), improving their backlink profile, executing on-site SEO with keyword-optimised blog content, and strengthening off-site SEO through strategic backlinking
 
-## Case studies (concept UX/UI projects on Behance)
+## Case studies (8+ concept UX/UI projects on Behance)
 
 - [PulseMetrics | Analytics Dashboard UX/UI](https://www.behance.net/gallery/256501935/PulseMetrics-Analytics-Dashboard-UXUI): a SaaS analytics dashboard
 - [MediCare+ | Healthcare UX/UI Case Study](https://www.behance.net/gallery/256398857/MediCare-Healthcare-UXUI-Case-Study): a healthcare product for web and mobile
