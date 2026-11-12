@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://rohanj21.github.io/rohan-portfolio/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rohanj21.github.io/rohan-portfolio/img/work/pulsemetrics/cover-1500.jpg</image:loc>
+      <image:title>PulseMetrics analytics dashboard concept</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rohanj21.github.io/rohan-portfolio/img/work/medicare/cover-1500.jpg</image:loc>
+      <image:title>MediCare+ healthcare concept</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rohanj21.github.io/rohan-portfolio/img/work/studynest/cover-1500.jpg</image:loc>
+      <image:title>StudyNest mobile app concept</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rohanj21.github.io/rohan-portfolio/img/work/kora/cover-1500.jpg</image:loc>
+      <image:title>Kora Indian ethnic wear shopping app concept</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rohanj21.github.io/rohan-portfolio/img/work/finflow/cover-1500.jpg</image:loc>
+      <image:title>FinFlow digital lending platform concept</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rohanj21.github.io/rohan-portfolio/img/work/raah/cover-1500.jpg</image:loc>
+      <image:title>Raah urban transit app concept</image:title>
+    </image:image>
+  </url>
+</urlset>

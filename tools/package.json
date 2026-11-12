@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-tools",
+  "private": true,
+  "type": "module",
+  "description": "Dev-only image optimiser. Not deployed.",
+  "scripts": {
+    "images": "node optimize-images.mjs",
+    "og": "node og-image.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

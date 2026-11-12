@@ -1,0 +1,28 @@
+{
+  "name": "Rohan Jadhav — UX/UI Designer & WordPress Developer",
+  "short_name": "Rohan Jadhav",
+  "description": "Portfolio of Rohan Ravi Jadhav, a UX/UI designer and WordPress developer in Mumbai.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#f7f6f2",
+  "theme_color": "#f7f6f2",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+# Rohan Ravi Jadhav
+
+> Rohan Ravi Jadhav (Rohan Jadhav) is a UX/UI designer, graphic designer, WordPress developer and SEO specialist based in Mumbai, India, with 4+ years of experience designing web and mobile products. He is a Senior UX/UI Designer and Graphic Designer at IDCLE Tech LLP and is available for freelance work (open to remote).
+
+This file summarises the portfolio at https://rohanj21.github.io/rohan-portfolio/ for AI assistants and search tools. Everything below is also stated on the page itself.
+
+## Quick facts
+
+- Name: Rohan Ravi Jadhav (also written Rohan Jadhav)
+- Role: UX/UI Designer, Graphic Designer, WordPress Developer, Video Editor, SEO Specialist
+- Current position: Senior UX/UI Designer & Graphic Designer, IDCLE Tech LLP (2022 – present)
+- Location: Mumbai, India (IST, UTC+5:30); open to remote work
+- Availability: Available for freelance projects
+- Experience: 4+ years, web and mobile
+- Industries: E-commerce, IT services & SaaS, finance & fintech
+- Languages: English (full professional), Hindi (full professional), Marathi (native)
+- Contact: jadhavrohan970@gmail.com
+
+## Services
+
+- UX/UI design: wireframes, user flows, prototypes, design systems (Figma, Adobe XD, Sketch)
+- Graphic design: logos, icons, illustrations, marketing visuals (Photoshop, Illustrator, Canva)
+- WordPress development: custom theme setup, page building, plugin configuration (Elementor, Divi)
+- Video editing: promotional videos, motion graphics (Premiere Pro, After Effects)
+
+## SEO & Digital Growth
+
+- SEO optimisation: on-page SEO (meta tags, schema markup, content optimisation), off-page SEO (backlink building, outreach, digital PR), technical SEO (Core Web Vitals, site architecture, crawlability)
+- Blog writing & content strategy: SEO-driven blog articles, content calendars, topical authority building, keyword mapping
+- GEO (Generative Engine Optimisation): optimising content for AI-powered search results and generative summaries
+- AEO (Answer Engine Optimisation): targeting featured snippets, People Also Ask and direct-answer surfaces
+- AIO (AI Optimisation): ensuring brand visibility in conversational AI assistants and next-gen search platforms
+- Client highlight: managed end-to-end SEO for LendFoundry (fintech/SaaS), improving their backlink profile, executing on-site SEO with keyword-optimised blog content, and strengthening off-site SEO through strategic backlinking
+
+## Case studies (concept UX/UI projects on Behance)
+
+- [PulseMetrics | Analytics Dashboard UX/UI](https://www.behance.net/gallery/256501935/PulseMetrics-Analytics-Dashboard-UXUI): a SaaS analytics dashboard
+- [MediCare+ | Healthcare UX/UI Case Study](https://www.behance.net/gallery/256398857/MediCare-Healthcare-UXUI-Case-Study): a healthcare product for web and mobile
+- [StudyNest | Mobile App UX/UI Case Study](https://www.behance.net/gallery/256017925/StudyNest-Mobile-App-UXUI-Case-Study): a mobile app built around study focus
+- [Kora - Indian Ethnic Wear Shopping App](https://www.behance.net/gallery/257082029/Kora-Indian-Ethnic-Wear-Shopping-App): an e-commerce mobile app
+- [FinFlow - Digital Lending Platform](https://www.behance.net/gallery/257027731/FinFlow-Digital-Lending-Platform): a digital lending platform
+- Raah | Urban Transit App UX Case Study: an urban transit app for planning routes and transfers; see the [Behance profile](https://www.behance.net/rohanjadhav19)
+
+## Live websites designed and built on WordPress
+
+- IntelliCraft: https://intellicraft.io/ (website design and build; also designed the IntelliCraft product)
+- Arceus Infotech: https://arceusinfotech.com/
+- ArcNetworks: https://arcnetworks.in/
+- Nashik Kumbh: http://nashik-kumbh.idcle.com/
+- Fr. Conceicao Rodrigues College: https://frcrce-stage.idcle.com/
+- Maharashtra Public School: https://mps-india.org/
+
+## Experience
+
+- 2022 – present: Senior UX/UI Designer & Graphic Designer, IDCLE Tech LLP
+- 2021 – 2026 (freelance): UX/UI Designer, Revelin7 Tech LLP; led a 3-member development team
+- 2021 – 2024 (freelance): UX Designer & Graphic Designer, NarrativeX
+
+## Education
+
+- M.Sc. Information Technology, Ramnarain Ruia College, Mumbai (2021 – 2023), CGPA 8.8/10
+- B.Sc. Information Technology, Sheth N.K.T.T & J.T.T College of Commerce, Mumbai (2019 – 2021), CGPA 8.0/10
+
+## Profiles
+
+- [Portfolio](https://rohanj21.github.io/rohan-portfolio/)
+- [Behance](https://www.behance.net/rohanjadhav19)
+- [LinkedIn](https://www.linkedin.com/in/rohanjadhav19)

@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+tools/node_modules/
+
+# Local env & editor
+.env
+.env.local
+.DS_Store
+Thumbs.db
+
+# Dev tooling & workspace docs
+.claude/
+PLAN.md
+_legacy/
+tools/originals/
